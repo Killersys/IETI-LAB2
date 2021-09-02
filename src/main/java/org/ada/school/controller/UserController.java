@@ -18,20 +18,15 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping( "/user" )
-public class UserController
-{
-
+public class UserController{
     private final UserService userService;
-
     public UserController( @Autowired UserService userService )
     {
         this.userService = userService;
     }
     @GetMapping
-    public ResponseEntity<List<UserDocument>> all()
-    {
-        return ResponseEntity.ok( userService.all() );
-    }
+    public ResponseEntity<List<UserDocument>> all(){
+        return ResponseEntity.ok( userService.all() );}
     @GetMapping( "/{id}" )
     public Optional<UserDocument> findById(@PathVariable String id ){
         return userService.findById( id );}
